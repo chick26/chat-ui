@@ -1,0 +1,115 @@
+.maintenance-response {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+/* 回答内容部分 */
+.answer-container {
+  background-color: #f0f7ff;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.answer-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 引用文档部分 */
+.references-container {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.references-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.references-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reference-item {
+  border-radius: 8px;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.reference-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reference-header:hover {
+  background-color: #f5f5f5;
+}
+
+.reference-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.reference-title i {
+  font-size: 16px;
+  color: #666;
+}
+
+.reference-confidence {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.reference-details {
+  padding: 12px;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+}
+
+.reference-path {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.path-label {
+  color: #888;
+  margin-right: 4px;
+}
+
+.path-value {
+  color: #255bda;
+}
+
+.reference-excerpt {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 10px;
+  border-left: 3px solid #ddd;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+} 

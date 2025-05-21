@@ -1,0 +1,78 @@
+.bot-selection {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bot-selection-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.bot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bot-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bot-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bot-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bot-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bot-icon-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #ffb300;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.bot-info {
+  flex: 1;
+}
+
+.bot-name {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.bot-description {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+} 

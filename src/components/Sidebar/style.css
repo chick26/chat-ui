@@ -1,0 +1,203 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  width: 260px;
+  transform: translateX(0);
+  padding-top: var(--safe-top);
+}
+
+.sidebar.collapsed {
+  transform: translateX(-220px);
+}
+
+.sidebar-toggle {
+  position: absolute;
+  right: 0;
+  top: calc(var(--safe-top) + 10px);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #255bda;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* 折叠状态下的按钮悬停和点击状态 */
+.sidebar.collapsed .sidebar-toggle:hover {
+  background-color: #204bb8;
+}
+
+.sidebar.collapsed .sidebar-toggle:active {
+  background-color: #1a3c94;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%) scale(0.98);
+}
+
+/* 展开状态下的关闭按钮样式 */
+.sidebar:not(.collapsed) .sidebar-toggle {
+  background-color: #f0f2f5;
+  color: #333;
+  border-radius: 50%;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 展开状态下的按钮悬停和点击状态 */
+.sidebar:not(.collapsed) .sidebar-toggle:hover {
+  background-color: #e1e4e8;
+}
+
+.sidebar:not(.collapsed) .sidebar-toggle:active {
+  background-color: #d1d5da;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: scale(0.95);
+}
+
+.sidebar-header {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f9fa;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.sidebar-content {
+  overflow-y: auto;
+  height: calc(100vh - 60px - var(--safe-top));
+}
+
+.bot-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bot-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  transition: all 0.2s ease;
+}
+
+.bot-item:hover {
+  background-color: #f5f7fa;
+}
+
+.bot-item.active {
+  background-color: #e6f7ff;
+  border-right: 3px solid #255bda;
+}
+
+.bot-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #255bda;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(37, 91, 218, 0.2);
+}
+
+.bot-info {
+  overflow: hidden;
+}
+
+.bot-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bot-description {
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80%;
+    max-width: 300px;
+    transform: translateX(-100%);
+    z-index: 1010; /* 确保覆盖其他元素 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  /* 遮罩层 */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1005;
+    pointer-events: none;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    backdrop-filter: blur(0px);
+  }
+  
+  /* 展开时显示侧边栏和遮罩 */
+  .sidebar:not(.collapsed) {
+    transform: translateX(0);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 移动端展开状态下的关闭按钮样式 */
+  .sidebar:not(.collapsed) .sidebar-toggle {
+    right: 10px;
+    top: calc(var(--safe-top) + 10px);
+  }
+  
+  .sidebar:not(.collapsed) ~ .sidebar-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+    backdrop-filter: blur(2px);
+  }
+  
+  /* 折叠时隐藏侧边栏 */
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  
+  /* 折叠时按钮仍然可见 */
+  .sidebar.collapsed .sidebar-toggle {
+    transform: translateX(100%);
+    background-color: #255bda;
+    color: white;
+    border-radius: 0 4px 4px 0;
+  }
+} 
