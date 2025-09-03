@@ -239,6 +239,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ botName, botId, examples = [] }
         loadMoreText="加载更多"
         placeholder="请输入消息..."
         locale="zh-CN"
+        colorScheme="auto"
       />
       
       {/* Toast 提示 */}
