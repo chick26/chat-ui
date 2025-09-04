@@ -40,7 +40,7 @@ export const examples: Record<string, ChatExample[]> = {
     { text: '我想从杭州去苏州，有什么推荐的路线吗？' },
   ],
   cable: [
-    { text: '海缆故障的常见原因有哪些？' },
+    { text: '今年有多少海缆故障？' },
     { text: '如何排查海缆中断问题？' },
     { text: '海缆故障定位的方法有哪些？' },
   ],

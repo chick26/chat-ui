@@ -193,6 +193,10 @@
   color: #ff5252;
 }
 
+.confirm-modal-btn-confirm:hover {
+    background-color: #c82333;
+  }
+
 /* 确保Chat组件占满容器 */
 .chat-window {
   display: flex;
@@ -253,4 +257,156 @@
     bottom: 70px;
     right: 16px;
   }
+} 
+
+.markdown-body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.markdown-body p,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body pre,
+.markdown-body blockquote {
+  margin: 0.5em 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 20px;
+}
+
+.markdown-body pre {
+  white-space: pre-wrap;
+  background-color: #f6f8fa;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.markdown-body code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border-radius: 4px;
+} 
+
+.thinking-container {
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+  
+.toggle-thinking-btn {
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+  
+.toggle-thinking-btn:hover {
+  background-color: #f0f8ff;
+}
+  
+.thinking-details {
+  font-size: 13px;
+  color: #666;
+}
+  
+.thinking-log {
+  margin: 0 0 5px 0;
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
+}
+
+.thinking-log-content {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .markdown-body pre,
+  .markdown-body code {
+    font-size: 13px;
+  }
+}
+
+/* 聊天消息的 Markdown 容器样式 */
+.chat-message-text,
+.chat-message-stream {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.chat-message-text .markdown-body,
+.chat-message-stream .markdown-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* 在聊天气泡中的 markdown 样式调整 */
+.chat-message-text .markdown-body h1,
+.chat-message-text .markdown-body h2,
+.chat-message-text .markdown-body h3,
+.chat-message-stream .markdown-body h1,
+.chat-message-stream .markdown-body h2,
+.chat-message-stream .markdown-body h3 {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 1.1em;
+  border: none;
+  padding-bottom: 0;
+}
+
+.chat-message-text .markdown-body p,
+.chat-message-stream .markdown-body p {
+  margin: 0.3em 0;
+}
+
+.chat-message-text .markdown-body ul,
+.chat-message-text .markdown-body ol,
+.chat-message-stream .markdown-body ul,
+.chat-message-stream .markdown-body ol {
+  margin: 0.3em 0;
+  padding-left: 1.5em;
+}
+
+.chat-message-text .markdown-body pre,
+.chat-message-stream .markdown-body pre {
+  margin: 0.5em 0;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.chat-message-text .markdown-body blockquote,
+.chat-message-stream .markdown-body blockquote {
+  margin: 0.5em 0;
+  padding: 0 12px;
+}
+
+/* 确保代码块在聊天中正确显示 */
+.chat-message-text .markdown-body pre div[class*="language-"],
+.chat-message-stream .markdown-body pre div[class*="language-"] {
+  border-radius: 4px;
+}
+
+/* 聊天中的数学公式 */
+.chat-message-text .katex,
+.chat-message-stream .katex {
+  font-size: 0.9em;
+}
+
+.chat-message-text .katex-display,
+.chat-message-stream .katex-display {
+  margin: 0.5em 0;
 } 

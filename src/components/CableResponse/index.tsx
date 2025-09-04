@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import './style.css';
 
 // 图表类型
@@ -167,9 +166,7 @@ const CableResponse: React.FC<CableResponseProps> = ({
       <div className="sql-container">
         <div className="sql-title">SQL语句</div>
         <div className="sql-content">
-          <ReactMarkdown>
-            {`\`\`\`sql\n${sql}\n\`\`\``}
-          </ReactMarkdown>
+          {`\`\`\`sql\n${sql}\n\`\`\``}
         </div>
       </div>
       

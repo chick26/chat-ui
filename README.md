@@ -16,6 +16,7 @@
 
 ### 特色功能
 - 场景切换：可在不同聊天机器人之间切换
+- 多场景 Token 支持：不同场景可使用不同的 API Token
 - 清空历史：支持一键清空聊天记录
 - 自定义消息组件：支持路由地图、故障报告等特定消息类型
 - 安全区适配：支持iPhone等设备的刘海屏和底部指示条
@@ -27,13 +28,18 @@ src/
 ├── components/         # UI组件
 │   ├── ChatWindow/     # 聊天窗口组件
 │   ├── Sidebar/        # 侧边栏组件
+│   ├── Markdown/       # Markdown渲染组件（支持思考过程）
 │   ├── CableResponse/  # 海缆故障回复组件
 │   ├── RouteResponse/  # 路由方案回复组件
 │   └── MaintenanceResponse/ # 运维规程回复组件
+├── config/             # 配置文件
+│   └── api.ts          # API配置（环境变量管理）
 ├── data/               # 数据相关
 │   └── bots.ts         # 机器人配置和示例问题
+├── services/           # 服务层
+│   └── chatService.ts  # 聊天API服务
 ├── mock/               # 模拟数据
-│   └── chatResponses.js # 模拟API响应
+│   └── chatResponses.ts # 模拟API响应
 ├── pages/              # 页面组件
 │   └── Main/           # 主页面
 ├── router/             # 路由配置
@@ -41,9 +47,30 @@ src/
 ├── utils/              # 工具函数
 ├── App.tsx             # 应用入口
 └── index.tsx           # React入口
+
+# 配置文件
+├── .env                # 环境变量（git忽略）
+├── env.template        # 环境变量模板
+└── docs/               # 文档
+    └── ENVIRONMENT_SETUP.md # 环境配置指南
 ```
 
 ## 开始使用
+
+### 环境配置
+
+首先设置API配置：
+
+```bash
+# 复制环境变量模板
+cp env.template .env
+
+# 编辑 .env 文件，填入实际的API配置
+# REACT_APP_API_BASE_URL=http://your-api-server
+# REACT_APP_API_TOKEN=your-api-token
+```
+
+详细配置说明请参考：[环境配置指南](./docs/ENVIRONMENT_SETUP.md)
 
 ### 安装依赖
 
@@ -153,7 +180,32 @@ ChatUI 图标通过以下方式引入：
 
 ## API接入
 
-目前应用使用 `src/mock/chatResponses.js` 模拟后端响应。如需接入真实API，请修改 `ChatWindow` 组件中的 `handleSend` 函数，将 `mockSendMessage` 替换为真实的API调用。
+应用已集成真实的聊天API，通过环境变量进行配置：
+
+### API配置
+- **配置文件**: `src/config/api.ts`
+- **服务层**: `src/services/chatService.ts`
+- **环境变量**: `.env` 文件
+
+### 支持的功能
+- ✅ 流式响应处理
+- ✅ 实时思考过程显示
+- ✅ 错误处理和重试
+- ✅ 多种事件类型支持（workflow、node、message等）
+
+### API响应格式
+应用支持处理以下事件类型：
+- `workflow_started` - 工作流开始
+- `node_started` - 节点开始
+- `node_finished` - 节点完成
+- `message` - 消息内容
+- `message_end` - 消息结束
+- `workflow_finished` - 工作流完成
+
+### 自定义API
+如需修改API逻辑，请编辑：
+1. `src/config/api.ts` - 修改API配置
+2. `src/services/chatService.ts` - 修改请求处理逻辑
 
 ## 许可证
 
