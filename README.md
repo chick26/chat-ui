@@ -2,6 +2,23 @@
 
 基于React和ChatUI库构建的智能对话应用，支持多场景问答和自定义对话界面。
 
+## 项目概述
+
+本项目是基于阿里巴巴开源的 [ChatUI](https://github.com/alibaba/ChatUI) 组件库和 [Dify API](https://docs.dify.ai/api) 进行的二次封装开发，旨在提供一个功能完整、界面美观的智能对话应用解决方案。
+
+### 技术栈
+- **前端框架**: React + TypeScript
+- **UI组件库**: ChatUI (阿里巴巴开源)
+- **API服务**: Dify API (支持多种LLM模型)
+- **构建工具**: Create React App
+
+### 核心特性
+- 🎨 基于ChatUI的专业级聊天界面
+- 🤖 集成Dify API，支持多种AI模型
+- 🔧 二次封装优化，开箱即用
+- 📱 响应式设计，支持移动端和桌面端
+- 🔄 流式响应，实时显示AI思考过程
+
 ## 功能介绍
 
 本应用是一个多功能的聊天界面，主要提供以下功能：
@@ -59,16 +76,18 @@ src/
 
 ### 环境配置
 
-首先设置API配置：
+首先设置Dify API配置：
 
 ```bash
 # 复制环境变量模板
 cp env.template .env
 
-# 编辑 .env 文件，填入实际的API配置
-# REACT_APP_API_BASE_URL=http://your-api-server
-# REACT_APP_API_TOKEN=your-api-token
+# 编辑 .env 文件，填入实际的Dify API配置
+# REACT_APP_API_BASE_URL=https://your-dify-api-server
+# REACT_APP_API_TOKEN=your-dify-api-token
 ```
+
+> **注意**: 需要先部署Dify平台或使用Dify云服务，获取相应的API地址和Token。详情请参考 [Dify官方文档](https://docs.dify.ai/)
 
 详细配置说明请参考：[环境配置指南](./docs/ENVIRONMENT_SETUP.md)
 
@@ -178,23 +197,25 @@ ChatUI 图标通过以下方式引入：
 />
 ```
 
-## API接入
+## Dify API接入
 
-应用已集成真实的聊天API，通过环境变量进行配置：
+应用已集成Dify API，支持多种大语言模型，通过环境变量进行配置：
 
 ### API配置
 - **配置文件**: `src/config/api.ts`
 - **服务层**: `src/services/chatService.ts`
 - **环境变量**: `.env` 文件
 
-### 支持的功能
-- ✅ 流式响应处理
+### Dify API特性
+- ✅ 流式响应处理 (Server-Sent Events)
 - ✅ 实时思考过程显示
-- ✅ 错误处理和重试
+- ✅ 错误处理和重试机制
 - ✅ 多种事件类型支持（workflow、node、message等）
+- ✅ 支持多种大语言模型（GPT、Claude、文心一言等）
+- ✅ 工作流模式支持
 
-### API响应格式
-应用支持处理以下事件类型：
+### Dify API事件格式
+应用支持处理以下Dify API标准事件类型：
 - `workflow_started` - 工作流开始
 - `node_started` - 节点开始
 - `node_finished` - 节点完成
